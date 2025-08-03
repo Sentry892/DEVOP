@@ -1,0 +1,29 @@
+{
+  "name": "devop-system-design",
+  "version": "1.0.0",
+  "description": "System design tutorials website with gamified learning",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo 'Open index.html in your browser'",
+    "dev": "echo 'Open index.html in your browser'",
+    "audit": "npm audit",
+    "audit:fix": "npm audit fix"
+  },
+  "keywords": [
+    "system-design",
+    "tutorials",
+    "web-development",
+    "architecture"
+  ],
+  "author": "DEVOP",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+} 

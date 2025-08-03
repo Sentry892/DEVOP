@@ -1,0 +1,945 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    line-height: 1.6;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Global Link Styles */
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #00d4ff;
+}
+
+a:focus {
+    outline: 2px solid #00d4ff;
+    outline-offset: 2px;
+}
+
+/* Enhanced Link Accessibility */
+a:focus-visible {
+    outline: 3px solid #00d4ff;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* Navigation Bar */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 3rem;
+    background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.2);
+    border-bottom: 2px solid #00d4ff;
+    position: relative;
+}
+
+.nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+}
+
+.nav-left-logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo Link */
+.logo-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2rem;
+    color: #00d4ff;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.8);
+    letter-spacing: 2px;
+    animation: logoGlow 3s ease-in-out infinite alternate;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo-text:hover {
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 1), 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Logo Link Specific Styling */
+.nav-left-logo a {
+    text-decoration: none;
+    display: block;
+}
+
+.nav-left-logo a:hover .logo-text {
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(0, 212, 255, 1), 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.nav-right ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 2.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Links */
+.nav-right ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.nav-right ul li a:hover {
+    color: #00d4ff;
+}
+
+.nav-right ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00d4ff;
+    transition: width 0.3s ease;
+}
+
+.nav-right ul li a:hover::after {
+    width: 100%;
+}
+
+/* Active Navigation State */
+.nav-right ul li a.active {
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+.nav-right ul li a.active::after {
+    width: 100%;
+}
+
+.nav-right-button {
+    background: linear-gradient(135deg, #00d4ff 0%, #00b8e6 100%);
+    color: #000000;
+    border: 2px solid #00d4ff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Button Link Hover Effects */
+.nav-right-button:hover,
+.freeproductcard-button-button:hover,
+.product-card-button-link:hover,
+.back-button:hover,
+.product-buy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+}
+
+.nav-right-button:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Catalog button without animations */
+.nav-right-button[href*="catlog"] {
+    background: #00d4ff;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-right-button[href*="catlog"]::before {
+    display: none;
+}
+
+.nav-right-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.nav-right-button:hover::before {
+    left: 100%;
+}
+
+/* Horizontal Rule */
+hr {
+    border: none;
+    height: 1px;
+    background-color: #333333;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+}
+
+/* Title */
+.title h1 {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* Center Text */
+.center-text {
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #00d4ff 0%, #00b8e6 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-text::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+.center-text-p {
+    font-size: 0.9rem;
+    color: #ffffff;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.8;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Free Product Card */
+.freeproductcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    padding: 3rem;
+    background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
+    border: 2px solid #333333;
+    position: relative;
+    overflow: hidden;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.freeproductcard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+}
+
+.freeproductcard-img img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.freeproductcard-title h2 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.freeproductcard-text {
+    text-align: center;
+    max-width: 400px;
+}
+
+.freeproductcard-text p {
+    font-size: 0.8rem;
+    color: #ffffff;
+    line-height: 1.8;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* Free Product Card Button Link */
+.freeproductcard-button-button {
+    background: linear-gradient(135deg, #00d4ff 0%, #00b8e6 100%);
+    color: #000000;
+    border: 2px solid #00d4ff;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.7rem;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.freeproductcard-button-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+}
+
+.freeproductcard-button-button:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.freeproductcard-button-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.freeproductcard-button-button:hover::before {
+    left: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .nav-right ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .container {
+        padding: 1rem;
+    }
+    
+    .title h1 {
+        font-size: 1.2rem;
+    }
+    
+    .freeproductcard {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .freeproductcard-text {
+        text-align: center;
+    }
+}
+
+
+
+/* Search Section */
+.search-section {
+    margin: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.search-container {
+    display: flex;
+    gap: 1rem;
+    max-width: 600px;
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    padding: 1rem;
+    border: 2px solid #00d4ff;
+    border-radius: 10px;
+    background: #111111;
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
+}
+
+.search-input:focus {
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+    border-color: #ffffff;
+}
+
+.search-input::placeholder {
+    color: #666666;
+}
+
+.search-button {
+    background: linear-gradient(135deg, #00d4ff 0%, #00b8e6 100%);
+    color: #000000;
+    border: 2px solid #00d4ff;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.6rem;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.search-button:hover {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.5);
+}
+
+.filter-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-select {
+    padding: 0.75rem 1rem;
+    border: 2px solid #333333;
+    border-radius: 8px;
+    background: #111111;
+    color: #ffffff;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.5rem;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.filter-select:focus {
+    border-color: #00d4ff;
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.filter-select option {
+    background: #111111;
+    color: #ffffff;
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Product Card Component */
+.product-card {
+    background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
+    border: 2px solid #333333;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.3);
+    border-color: #00d4ff;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+}
+
+.product-card-title {
+    font-size: 1rem;
+    color: #00d4ff;
+    margin-bottom: 1rem;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.product-card-img {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.product-card-img img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #333333;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .product-card-img img {
+    border-color: #00d4ff;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+}
+
+.product-card-description {
+    font-size: 0.6rem;
+    color: #cccccc;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.product-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.5rem;
+}
+
+.product-card-difficulty {
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.product-card-difficulty.beginner {
+    background: #00ff00;
+    color: #000000;
+}
+
+.product-card-difficulty.intermediate {
+    background: #ffaa00;
+    color: #000000;
+}
+
+.product-card-difficulty.advanced {
+    background: #ff0000;
+    color: #ffffff;
+}
+
+.product-card-category {
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+.product-card-button {
+    text-align: center;
+}
+
+/* Product Card Button Link */
+.product-card-button-link {
+    background: linear-gradient(135deg, #00d4ff 0%, #00b8e6 100%);
+    color: #000000;
+    border: 2px solid #00d4ff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.6rem;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.product-card-button-link:hover {
+    background: #ffffff;
+    color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+}
+
+.product-card-button-link:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.product-card-button-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.product-card-button-link:hover::before {
+    left: 100%;
+}
+
+/* Responsive adjustments for catalog */
+@media (max-width: 768px) {
+    .search-container {
+        flex-direction: column;
+    }
+    
+    .filter-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .product-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Animations */
+@keyframes glow {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes logoGlow {
+    0% { text-shadow: 0 0 10px rgba(0, 212, 255, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.8); }
+    100% { text-shadow: 0 0 20px rgba(0, 212, 255, 1), 2px 2px 4px rgba(0, 0, 0, 0.8); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+/* Product Page Styles */
+.back-button-container {
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+/* Back Button Link */
+.back-button {
+    background: #333333;
+    color: #ffffff;
+    border: 2px solid #00d4ff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.6rem;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background: #00d4ff;
+    color: #000000;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.back-button:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.product-banner {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.product-banner img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    border: 2px solid #333333;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
+}
+
+.product-info {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.2);
+    border: 2px solid #333333;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+}
+
+.product-header-simple {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.product-header-simple h1 {
+    font-size: 1.5rem;
+    color: #00d4ff;
+    margin: 0;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+.product-price-simple {
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    background: #00d4ff;
+    color: #000000;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.product-description-extended {
+    margin-bottom: 2rem;
+}
+
+.product-description-extended p {
+    font-size: 0.8rem;
+    color: #cccccc;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.product-action {
+    text-align: center;
+}
+
+/* Product Buy Button Link */
+.product-buy-button {
+    background: linear-gradient(135deg, #00d4ff 0%, #00b8e6 100%);
+    color: #000000;
+    border: 2px solid #00d4ff;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.7rem;
+    transition: all 0.3s ease;
+    font-family: 'Press Start 2P', cursive;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+    display: inline-block;
+    text-decoration: none;
+}
+
+.product-buy-button:hover {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.5);
+    transform: translateY(-3px);
+}
+
+.product-buy-button:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Responsive Design for Product Page */
+@media (max-width: 768px) {
+    .product-header-simple {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .product-info {
+        padding: 1.5rem;
+    }
+    
+    .back-button-container {
+        text-align: center;
+    }
+}
+
+/* External Link Indicator */
+a[href^="http"]::after {
+    content: ' ↗';
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+a[href^="http"]:hover::after {
+    opacity: 1;
+}
+
+/* Disabled Link State */
+a[disabled], a.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Active Link State */
+a.active {
+    color: #00d4ff;
+    font-weight: 600;
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: #00d4ff;
+    color: #000000;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Link Loading State */
+a.loading {
+    opacity: 0.7;
+    pointer-events: none;
+    position: relative;
+}
+
+a.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top: 2px solid #00d4ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Print Styles for Links */
+@media print {
+    a {
+        color: #000000 !important;
+        text-decoration: underline !important;
+    }
+    
+    a[href^="http"]::after {
+        content: ' (' attr(href) ')';
+        font-size: 0.8em;
+        color: #666666;
+    }
+}

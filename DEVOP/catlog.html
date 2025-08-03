@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Catalog - DEVOP System Design Tutorials</title>
+    <meta name="description" content="Browse our collection of system design tutorials, architecture diagrams, and learning resources. Find the perfect tutorial for your skill level.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-left">
+            <div class="nav-left-logo">
+                <a href="index.html">
+                    <h1 class="logo-text">DEVOP</h1>
+                </a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="catlog.html" class="nav-right-button">Catalog</a></li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="title">
+            <h1>System Design Catalog</h1>
+        </div>
+        <div class="center-text">
+            <p class="center-text-p">
+                Explore our collection of system design tutorials, from beginner-friendly chat apps to complex distributed systems. Each tutorial includes detailed diagrams, explanations, and real-world examples.
+            </p>
+        </div>
+        
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-container">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search tutorials...">
+                <button id="searchButton" class="search-button">Search</button>
+            </div>
+            <div class="filter-container">
+                <select id="difficultyFilter" class="filter-select">
+                    <option value="">All Difficulties</option>
+                    <option value="beginner">Beginner</option>
+                    <option value="intermediate">Intermediate</option>
+                    <option value="advanced">Advanced</option>
+                </select>
+                <select id="categoryFilter" class="filter-select">
+                    <option value="">All Categories</option>
+                    <option value="chat">Chat Systems</option>
+                    <option value="ecommerce">E-commerce</option>
+                    <option value="social">Social Media</option>
+                    <option value="streaming">Streaming</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+            <!-- Product cards will be dynamically generated here -->
+        </div>
+    </div>
+
+    <script src="search.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
